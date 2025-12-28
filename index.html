@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Favourite Bookmarks</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: linear-gradient(135deg, #87ceeb, #b6e6ff);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #0b2545;
+            perspective: 1200px;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            text-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        a {
+            display: block;
+            width: 320px;
+            text-align: center;
+            padding: 16px;
+            margin: 14px 0;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 14px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.25);
+            transform-style: preserve-3d;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+            position: relative;
+            z-index: 2;
+        }
+
+        a:hover {
+            transform: translateY(-6px) translateZ(25px) rotateX(6deg);
+            box-shadow: 0 25px 45px rgba(0,0,0,0.5);
+        }
+
+        a::before {
+            margin-right: 8px;
+            font-size: 20px;
+        }
+
+        a[href*="google"] {
+            background: linear-gradient(145deg, #4285f4, #34a853);
+        }
+        a[href*="google"]::before { content: "🔍"; }
+
+        a[href*="facebook"] {
+            background: linear-gradient(145deg, #1877f2, #0f5cc0);
+        }
+        a[href*="facebook"]::before { content: "📘"; }
+
+        a[href*="linkedin"] {
+            background: linear-gradient(145deg, #0a66c2, #084d96);
+        }
+        a[href*="linkedin"]::before { content: "💼"; }
+
+        a[href*="youtube"] {
+            background: linear-gradient(145deg, #ff0000, #cc0000);
+        }
+        a[href*="youtube"]::before { content: "▶"; }
+
+        a[href*="instagram"] {
+            background: linear-gradient(145deg, #f58529, #dd2a7b, #8134af, #515bd4);
+        }
+        a[href*="instagram"]::before { content: "📸"; }
+
+        body::before,
+        body::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-repeat: no-repeat;
+            opacity: 0.12;
+            filter: blur(0.6px);
+            animation: drift 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        body::before {
+            background-image:
+                url("https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"),
+                url("https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png");
+            background-position: 10% 20%, 80% 30%;
+            background-size: 120px;
+        }
+
+        body::after {
+            background-image:
+                url("https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"),
+                url("https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"),
+                url("https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png");
+            background-position: 20% 75%, 70% 65%, 50% 10%;
+            background-size: 130px, 90px, 100px;
+        }
+
+        @keyframes drift {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-50px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Your Favourite Bookmarks</h1>
+    <a href="https://google.com" target="_blank">Google - Pagal</a>
+    <a href="https://facebook.com" target="_blank">Facebook - Old School</a>
+    <a href="https://linkedin.com" target="_blank">LinkedIn - Not Interested</a>
+    <a href="https://youtube.com" target="_blank">YouTube - Sometimes Helpful</a>
+    <a href="https://instagram.com" target="_blank">Instagram - Time Waste</a>
+</body>
+</html>
